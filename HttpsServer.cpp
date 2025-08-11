@@ -11,11 +11,11 @@ HttpsServer::HttpsServer(int port, uint8_t *cert_pem, uint8_t *key_pem, size_t c
     this->conf.prvtkey_len = key_len;
 }
 
-void HttpsServer::registerURI(char *uri, httpd_method_t method, esp_err_t (*handler)(httpd_req_t *r))
+void HttpsServer::registerURI(std::string& uri, httpd_method_t method, esp_err_t (*handler)(httpd_req_t *r))
 {
     if(!isRunning()) return; // becose the handle == NULL. please do start() before
     httpd_uri_t _uri = {
-        .uri = uri,
+        .uri = uri.c_str(),
         .method = method,
         .handler = handler,
         .user_ctx = NULL
