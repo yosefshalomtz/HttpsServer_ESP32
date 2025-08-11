@@ -1,6 +1,6 @@
 #include "HttpsServer.hpp"
 
-HttpsServer::HttpsServer(int port, const uint8_t *cert_pem, const uint8_t *key_pem, size_t cert_len, size_t key_len)
+HttpsServer::HttpsServer(uint16_t port, const uint8_t *cert_pem, const uint8_t *key_pem, size_t cert_len, size_t key_len)
 {
     this->conf = HTTPD_SSL_CONFIG_DEFAULT();
     this->conf.httpd.server_port = port;
