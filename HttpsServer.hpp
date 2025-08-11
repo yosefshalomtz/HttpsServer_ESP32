@@ -9,7 +9,7 @@
 class HttpsServer
 {
 public:
-    HttpsServer(uint16_t port, const uint8_t *cert_pem, const uint8_t *key_pem, size_t cert_len, size_t key_len);
+    HttpsServer(const uint8_t *cert_pem, const uint8_t *key_pem, size_t cert_len, size_t key_len);
 
     // important! call this function only after server->start()
     void registerURI(char* uri, httpd_method_t method, esp_err_t (*handler)(httpd_req_t *r));
