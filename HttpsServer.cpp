@@ -30,7 +30,9 @@ bool HttpsServer::isRunning()
 void HttpsServer::start()
 {
     if (this->running) return; // already running
+    printf("Starting server on port: %d\n", this->conf.httpd.server_port);
     ESP_ERROR_CHECK(httpd_ssl_start(&(this->server_handle), &(this->conf)));
+    printf("Starting server on port: %d\n", this->conf.httpd.server_port);
     this->running = true;
 }
 
