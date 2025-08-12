@@ -3,6 +3,7 @@
 HttpsServer::HttpsServer(const uint8_t *cert_pem, const uint8_t *key_pem, size_t cert_len, size_t key_len)
 {
     this->conf = HTTPD_SSL_CONFIG_DEFAULT();
+    this->conf.httpd.max_open_sockets = 7;
     this->conf.servercert = cert_pem;
     this->conf.servercert_len = cert_len;
     this->conf.prvtkey_pem = key_pem;
